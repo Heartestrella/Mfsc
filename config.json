@@ -1,0 +1,183 @@
+{
+    "_": "Made By bee",
+    "fabric": {
+        "1.14": "https://meta.fabricmc.net/v2/versions/loader/1.14/0.15.11/1.0.1/server/jar",
+        "1.14.1": "https://meta.fabricmc.net/v2/versions/loader/1.14.1/0.15.11/1.0.1/server/jar",
+        "1.14.2": "https://meta.fabricmc.net/v2/versions/loader/1.14.2/0.15.11/1.0.1/server/jar",
+        "1.14.3": "https://meta.fabricmc.net/v2/versions/loader/1.14.3/0.15.11/1.0.1/server/jar",
+        "1.14.4": "https://meta.fabricmc.net/v2/versions/loader/1.14.4/0.15.11/1.0.1/server/jar",
+        "1.15": "https://meta.fabricmc.net/v2/versions/loader/1.15/0.15.11/1.0.1/server/jar",
+        "1.15.1": "https://meta.fabricmc.net/v2/versions/loader/1.15.1/0.15.11/1.0.1/server/jar",
+        "1.15.2": "https://meta.fabricmc.net/v2/versions/loader/1.15.2/0.15.11/1.0.1/server/jar",
+        "1.16": "https://meta.fabricmc.net/v2/versions/loader/1.16/0.15.11/1.0.1/server/jar",
+        "1.16.1": "https://meta.fabricmc.net/v2/versions/loader/1.16.1/0.15.11/1.0.1/server/jar",
+        "1.16.2": "https://meta.fabricmc.net/v2/versions/loader/1.16.2/0.15.11/1.0.1/server/jar",
+        "1.16.3": "https://meta.fabricmc.net/v2/versions/loader/1.16.3/0.15.11/1.0.1/server/jar",
+        "1.16.4": "https://meta.fabricmc.net/v2/versions/loader/1.16.4/0.15.11/1.0.1/server/jar",
+        "1.16.5": "https://meta.fabricmc.net/v2/versions/loader/1.16.5/0.15.11/1.0.1/server/jar",
+        "1.17": "https://meta.fabricmc.net/v2/versions/loader/1.17/0.15.11/1.0.1/server/jar",
+        "1.17.1": "https://meta.fabricmc.net/v2/versions/loader/1.17.1/0.15.11/1.0.1/server/jar",
+        "1.18": "https://meta.fabricmc.net/v2/versions/loader/1.18/0.15.11/1.0.1/server/jar",
+        "1.18.1": "https://meta.fabricmc.net/v2/versions/loader/1.18.1/0.15.11/1.0.1/server/jar",
+        "1.18.2": "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.15.11/1.0.1/server/jar",
+        "1.19": "https://meta.fabricmc.net/v2/versions/loader/1.19/0.15.11/1.0.1/server/jar",
+        "1.19.1": "https://meta.fabricmc.net/v2/versions/loader/1.19.1/0.15.11/1.0.1/server/jar",
+        "1.19.2": "https://meta.fabricmc.net/v2/versions/loader/1.19.2/0.15.11/1.0.1/server/jar",
+        "1.19.3": "https://meta.fabricmc.net/v2/versions/loader/1.19.3/0.15.11/1.0.1/server/jar",
+        "1.19.4": "https://meta.fabricmc.net/v2/versions/loader/1.19.4/0.15.11/1.0.1/server/jar",
+        "1.20": "https://meta.fabricmc.net/v2/versions/loader/1.20/0.15.11/1.0.1/server/jar",
+        "1.20.1": "https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.15.11/1.0.1/server/jar",
+        "1.20.2": "https://meta.fabricmc.net/v2/versions/loader/1.20.2/0.15.11/1.0.1/server/jar",
+        "1.20.3": "https://meta.fabricmc.net/v2/versions/loader/1.20.3/0.15.11/1.0.1/server/jar",
+        "1.20.4": "https://meta.fabricmc.net/v2/versions/loader/1.20.4/0.15.11/1.0.1/server/jar",
+        "1.20.5": "https://meta.fabricmc.net/v2/versions/loader/1.20.5/0.15.11/1.0.1/server/jar",
+        "1.20.6": "https://meta.fabricmc.net/v2/versions/loader/1.20.6/0.15.11/1.0.1/server/jar",
+        "1.21": "https://meta.fabricmc.net/v2/versions/loader/1.21/0.15.11/1.0.1/server/jar",
+        "1.21.1": "https://meta.fabricmc.net/v2/versions/loader/1.21.1/0.16.10/1.0.1/server/jar",
+        "1.21.2": "https://meta.fabricmc.net/v2/versions/loader/1.21.2/0.16.10/1.0.1/server/jar",
+        "1.21.3": "https://meta.fabricmc.net/v2/versions/loader/1.21.3/0.16.10/1.0.1/server/jar",
+        "1.21.4": "https://meta.fabricmc.net/v2/versions/loader/1.21.4/0.16.10/1.0.1/server/jar"
+    },
+    "floodgate": {
+        "fabric": "https://cdn.modrinth.com/data/bWrNNfkb/versions/yL5NRQ1i/Floodgate-Fabric-2.2.3-SNAPSHOT%2Bbuild.30.jar",
+        "paper": "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot"
+    },
+    "geyser": {
+        "fabric": "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/fabric",
+        "paper": "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot"
+    },
+    "java": {
+        "Java 11": [
+            "1.16.5",
+            "1.16.4",
+            "1.16.3",
+            "1.16.2",
+            "1.16.1",
+            "1.16"
+        ],
+        "Java 17": [
+            "1.19.4",
+            "1.19.3",
+            "1.19.2",
+            "1.19.1",
+            "1.19",
+            "1.18.2",
+            "1.18.1",
+            "1.18",
+            "1.17.1",
+            "1.17"
+        ],
+        "Java 21": [
+            "1.21.4",
+            "1.21.3",
+            "1.21",
+            "1.20.6",
+            "1.20.5",
+            "1.20.4",
+            "1.20.3",
+            "1.20.2",
+            "1.20.1",
+            "1.20"
+        ],
+        "Java 8": [
+            "1.15.2",
+            "1.15.1",
+            "1.15",
+            "1.14.4",
+            "1.14.3",
+            "1.14.2",
+            "1.14.1",
+            "1.14",
+            "1.13.2",
+            "1.13.1",
+            "1.13",
+            "1.12.2",
+            "1.12.1",
+            "1.12",
+            "1.11.2",
+            "1.10.2",
+            "1.9.4",
+            "1.8.8"
+        ]
+    },
+    "java_url": {
+        "Linux": {
+            "AMD64": {
+                "Java 11": "https://r18.icu:400/jdk-11.0.24_linux-x64_bin.tar.gz",
+                "Java 17": "https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz",
+                "Java 21": "https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz",
+                "Java 8": "https://r18.icu:400/jdk-8u421-linux-x64.tar.gz"
+            },
+            "aarch64": {
+                "Java 11": "https://r18.icu:400/jdk-11.0.24_linux-aarch64_bin.tar.gz",
+                "Java 17": "https://download.oracle.com/java/17/latest/jdk-17_linux-aarch64_bin.tar.gz",
+                "Java 21": "https://download.oracle.com/java/21/latest/jdk-21_linux-aarch64_bin.tar.gz",
+                "Java 8": "https://r18.icu:400/jdk-8u421-linux-aarch64.tar.gz"
+            }
+        },
+        "Windows": {
+            "32bit": {
+                "Java 11": null,
+                "Java 17": null,
+                "Java 21": null,
+                "Java 8": "https://r18.icu:400/jdk-8u421-windows-i586.exe"
+            },
+            "64bit": {
+                "Java 11": "https://r18.icu:400/jdk-11.0.24_windows-x64_bin.exe",
+                "Java 17": "https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe",
+                "Java 21": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe",
+                "Java 8": "https://r18.icu:400/jdk-8u421-windows-x64.exe"
+            }
+        },
+        "_comment": "Java11 Java8 \u7684\u4e0b\u8f7d\u670d\u52a1\u7531\u6211\u81ea\u5df1\u7684\u670d\u52a1\u5668\u63d0\u4f9b\uff0c\u5404\u4f4d\u5927\u4f6c\u4e0d\u8981DD\uff0c\u8c22\u8c22\uff01"
+    },
+    "paper": {
+        "1.10.2": "https://api.papermc.io/v2/projects/paper/versions/1.10.2/builds/918/downloads/paper-1.10.2-918.jar",
+        "1.11.2": "https://api.papermc.io/v2/projects/paper/versions/1.11.2/builds/1106/downloads/paper-1.11.2-1106.jar",
+        "1.12": "https://api.papermc.io/v2/projects/paper/versions/1.12/builds/1169/downloads/paper-1.12-1169.jar",
+        "1.12.1": "https://api.papermc.io/v2/projects/paper/versions/1.12.1/builds/1204/downloads/paper-1.12.1-1204.jar",
+        "1.12.2": "https://api.papermc.io/v2/projects/paper/versions/1.12.2/builds/1620/downloads/paper-1.12.2-1620.jar",
+        "1.13": "https://api.papermc.io/v2/projects/paper/versions/1.13/builds/173/downloads/paper-1.13-173.jar",
+        "1.13.1": "https://api.papermc.io/v2/projects/paper/versions/1.13.1/builds/386/downloads/paper-1.13.1-386.jar",
+        "1.13.2": "https://api.papermc.io/v2/projects/paper/versions/1.13.2/builds/657/downloads/paper-1.13.2-657.jar",
+        "1.14": "https://api.papermc.io/v2/projects/paper/versions/1.14/builds/17/downloads/paper-1.14-17.jar",
+        "1.14.1": "https://api.papermc.io/v2/projects/paper/versions/1.14.1/builds/50/downloads/paper-1.14.1-50.jar",
+        "1.14.2": "https://api.papermc.io/v2/projects/paper/versions/1.14.2/builds/107/downloads/paper-1.14.2-107.jar",
+        "1.14.3": "https://api.papermc.io/v2/projects/paper/versions/1.14.3/builds/134/downloads/paper-1.14.3-134.jar",
+        "1.14.4": "https://api.papermc.io/v2/projects/paper/versions/1.14.4/builds/245/downloads/paper-1.14.4-245.jar",
+        "1.15": "https://api.papermc.io/v2/projects/paper/versions/1.15/builds/21/downloads/paper-1.15-21.jar",
+        "1.15.1": "https://api.papermc.io/v2/projects/paper/versions/1.15.1/builds/62/downloads/paper-1.15.1-62.jar",
+        "1.15.2": "https://api.papermc.io/v2/projects/paper/versions/1.15.2/builds/393/downloads/paper-1.15.2-393.jar",
+        "1.16.1": "https://api.papermc.io/v2/projects/paper/versions/1.16.1/builds/138/downloads/paper-1.16.1-138.jar",
+        "1.16.2": "https://api.papermc.io/v2/projects/paper/versions/1.16.2/builds/189/downloads/paper-1.16.2-189.jar",
+        "1.16.3": "https://api.papermc.io/v2/projects/paper/versions/1.16.3/builds/253/downloads/paper-1.16.3-253.jar",
+        "1.16.4": "https://api.papermc.io/v2/projects/paper/versions/1.16.4/builds/416/downloads/paper-1.16.4-416.jar",
+        "1.16.5": "https://api.papermc.io/v2/projects/paper/versions/1.16.5/builds/794/downloads/paper-1.16.5-794.jar",
+        "1.17": "https://api.papermc.io/v2/projects/paper/versions/1.17/builds/79/downloads/paper-1.17-79.jar",
+        "1.17.1": "https://api.papermc.io/v2/projects/paper/versions/1.17.1/builds/411/downloads/paper-1.17.1-411.jar",
+        "1.18": "https://api.papermc.io/v2/projects/paper/versions/1.18/builds/66/downloads/paper-1.18-66.jar",
+        "1.18.1": "https://api.papermc.io/v2/projects/paper/versions/1.18.1/builds/216/downloads/paper-1.18.1-216.jar",
+        "1.18.2": "https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar",
+        "1.19": "https://api.papermc.io/v2/projects/paper/versions/1.19/builds/81/downloads/paper-1.19-81.jar",
+        "1.19.1": "https://api.papermc.io/v2/projects/paper/versions/1.19.1/builds/111/downloads/paper-1.19.1-111.jar",
+        "1.19.2": "https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/307/downloads/paper-1.19.2-307.jar",
+        "1.19.3": "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/448/downloads/paper-1.19.3-448.jar",
+        "1.19.4": "https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/550/downloads/paper-1.19.4-550.jar",
+        "1.20": "https://api.papermc.io/v2/projects/paper/versions/1.20/builds/17/downloads/paper-1.20-17.jar",
+        "1.20.1": "https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/196/downloads/paper-1.20.1-196.jar",
+        "1.20.2": "https://api.papermc.io/v2/projects/paper/versions/1.20.2/builds/318/downloads/paper-1.20.2-318.jar",
+        "1.20.4": "https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/497/downloads/paper-1.20.4-497.jar",
+        "1.20.5": "https://api.papermc.io/v2/projects/paper/versions/1.20.5/builds/22/downloads/paper-1.20.5-22.jar",
+        "1.20.6": "https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/148/downloads/paper-1.20.6-148.jar",
+        "1.21": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/124/downloads/paper-1.21-124.jar",
+        "1.21.3": "https://api.papermc.io/v2/projects/paper/versions/1.21.3/builds/82/downloads/paper-1.21.3-82.jar",
+        "1.21.4": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/118/downloads/paper-1.21.4-118.jar",
+        "1.8.8": "https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar",
+        "1.9.4": "https://api.papermc.io/v2/projects/paper/versions/1.9.4/builds/775/downloads/paper-1.9.4-775.jar"
+    },
+    "version": "1.0.1",
+    "warn_versions_paper": [
+        "1.20.5",
+        "1.18"
+    ]
+}
