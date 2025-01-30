@@ -15,22 +15,10 @@
 ## 环境需求
 
 - **操作系统**：
-  - Windows 64 位（仅支持 AMD64 架构）
+  - Windows 64 位（仅支持 AMD/Arm64 架构）
   - Linux 64 位
 - **Python 环境**：Python 3.x
 - **依赖库**：
-  - `ctypes`
-  - `json`
-  - `os`
-  - `platform`
-  - `re`
-  - `shutil`
-  - `socket`
-  - `subprocess`
-  - `sys`
-  - `tarfile`
-  - `threading`
-  - `time`
   - `requests`
   - `tqdm`
 
@@ -55,3 +43,4 @@ Windows用户最好在Powershell用执行文件方便查看输出
 
 ## 更新
 V1.0.1:完善项目大致框架实现基础功能
+V1.0.2:完善对系统已有Java的支持，并修Linux用户退格识别为Ctrl^H的问题
