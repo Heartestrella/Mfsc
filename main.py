@@ -3,6 +3,7 @@ import json
 import os
 import platform
 import re
+import readline
 import shutil
 import socket
 import subprocess
@@ -179,9 +180,9 @@ def download_jar():
 
 
 def get_java_version_for_choice():
-    for java_version, versions in config["java"].items():
+    for java_version_int, versions in config["java"].items():
         if choice in versions:
-            return java_version
+            return java_version_int
     return None
 
 
@@ -208,76 +209,138 @@ def extract_version_from_string(java_string):
     return None
 
 
+def check_java(java_version_int):
+    try:
+        # 执行 "java -version"，获取版本信息
+        result = subprocess.run(
+            ["java", "-version"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        if result.returncode != 0:
+            print("Java is not installed.")
+            return False
+    except FileNotFoundError:
+        print("Java is not installed or not in PATH.")
+        return False
+
+    version_output = result.stderr
+    match = re.search(r"\"(\d+\.\d+|\d+)\.\d+.*\"", version_output)
+
+    if match:
+        java_version_str = match.group(1)
+        # 处理 Java 9 及以上版本（简化版号，如 17 而非 1.17）
+        java_version_int = int(java_version_str.split(".")[0])
+    else:
+        print("Failed to detect Java version.")
+        return False
+
+    print(f"Detected Java version: {java_version_int}")
+
+    if java_version_int != java_version_int:
+        print(
+            f"Java version mismatch. Expected: {java_version_int}, Found: {java_version_int}"
+        )
+        return False
+
+    # 获取 Java 安装路径
+    try:
+        if sys.platform.startswith("win"):
+            result = subprocess.run(
+                ["where", "java"], stdout=subprocess.PIPE, text=True
+            )
+        else:
+            result = subprocess.run(
+                ["which", "java"], stdout=subprocess.PIPE, text=True
+            )
+
+        java_path = result.stdout.strip()
+        if java_path:
+            print(f"Java Path: {java_path}")
+            return java_path
+        else:
+            print("Java is not found in PATH.")
+            return False
+    except Exception as e:
+        print(f"Error while fetching Java path: {e}")
+        return False
+
+
 def get_java():
     global java_path
-    java_version = get_java_version_for_choice()
-    java_version_int = extract_version_from_string(java_version)
-    if os_type == "Windows":
-        java_path = rf"C:\Program Files\Java\jdk-{java_version_int}\bin\java.exe"
-        if java_version_int == "8":
-            java_path = r"C:\Program Files\Java\jre1.8.0_421\bin\java.exe"
-    elif os_type == "Linux":
-        base_dir = rf"/opt/java{java_version_int}"
-        subfolder_path = next(
-            (
-                os.path.join(base_dir, d)
-                for d in os.listdir(base_dir)
-                if os.path.isdir(os.path.join(base_dir, d))
-            ),
-            None,
-        )
-        java_path = os.path.join(subfolder_path, "bin", "java")
-
-    if os.path.exists(java_path):
-        return None
-
-    print(f"\n所需的Java版本为：{java_version}\n")
-    java_url_data = config["java_url"][os_type]
-    if os_type == "Windows":
-        java_url = java_url_data["64bit"][java_version]
-        suffix = "exe"
-    elif os_type == "Linux":
-        java_url = java_url_data[machine_type][java_version]
-        suffix = "tar.gz"
+    java_version_int = extract_version_from_string(get_java_version_for_choice())
+    java_path = check_java(int(java_version_int))
+    if java_path:
+        print("Java 已安装")
     else:
-        OSError("不支持的操作系统")
-    file_name = f"{java_version}.{suffix}"
-    print(java_url)
+        if os_type == "Windows":
+            java_path = rf"C:\Program Files\Java\jdk-{java_version_int}\bin\java.exe"
+            if java_version_int == "8":
+                java_path = r"C:\Program Files\Java\jre1.8.0_421\bin\java.exe"
+        elif os_type == "Linux":
 
-    download_file(java_url, file_name)
-    print("\n安装Java中...\n")
-    if os_type == "Windows":
-        print(f"请手动完成Java{java_version_int}的安装,请不要更改Java的默认配置\n")
-        subprocess.run(file_name, check=True)
+            base_dir = rf"/opt/java{java_version_int}"
+            subfolder_path = next(
+                (
+                    os.path.join(base_dir, d)
+                    for d in os.listdir(base_dir)
+                    if os.path.isdir(os.path.join(base_dir, d))
+                ),
+                None,
+            )
+            java_path = os.path.join(subfolder_path, "bin", "java")
 
-    elif os_type == "Linux":
-        with tarfile.open(file_name, "r:gz") as tar:
-            tar.extractall(path=f"/opt/java{java_version_int}")
         if os.path.exists(java_path):
-            pass
+            return None
+
+        print(f"\n所需的Java版本为：{java_version_int}\n")
+        java_url_data = config["java_url"][os_type]
+        if os_type == "Windows":
+            java_url = java_url_data["64bit"][java_version_int]
+            suffix = "exe"
+        elif os_type == "Linux":
+            java_url = java_url_data[machine_type][java_version_int]
+            suffix = "tar.gz"
         else:
-            RuntimeError("Java安装失败")
-        # os.system(f"tar -xzf {file_name} -C /usr/lib/jvm")
+            OSError("不支持的操作系统")
+        file_name = f"{java_version_int}.{suffix}"
+        print(java_url)
 
-    time.sleep(5)
+        download_file(java_url, file_name)
+        print("\n安装Java中...\n")
+        if os_type == "Windows":
+            print(f"请手动完成Java{java_version_int}的安装,请不要更改Java的默认配置\n")
+            subprocess.run(file_name, check=True)
 
-    try:
-        result = subprocess.run(
-            [java_path, "--version"], capture_output=True, text=True, check=True
-        )
-        print("Java 版本输出:\n", result.stdout)
-        if java_version_int in result.stdout:
-            print(f"Java {java_version} 安装成功。")
-        else:
-            print(f"安装失败，安装的 Java 版本不匹配。")
-    except subprocess.CalledProcessError as e:
-        print(f"Java 安装失败，返回码: {e.returncode}")
-        print(f"错误输出:\n{e.stderr}")
-    except FileNotFoundError:
-        print("Java 执行文件未找到，请检查 Java 是否正确安装。")
+        elif os_type == "Linux":
+            with tarfile.open(file_name, "r:gz") as tar:
+                tar.extractall(path=f"/opt/java{java_version_int}")
+            if os.path.exists(java_path):
+                pass
+            else:
+                RuntimeError("Java安装失败")
+            # os.system(f"tar -xzf {file_name} -C /usr/lib/jvm")
 
-    print("\n开始清理下载缓存文件\n")
-    os.remove(file_name)
+        time.sleep(5)
+
+        try:
+            result = subprocess.run(
+                [java_path, "--version"], capture_output=True, text=True, check=True
+            )
+            print("Java 版本输出:\n", result.stdout)
+            if java_version_int in result.stdout:
+                print(f"Java {java_version_int} 安装成功。")
+            else:
+                print(f"安装失败，安装的 Java 版本不匹配。")
+        except subprocess.CalledProcessError as e:
+            print(f"Java 安装失败，返回码: {e.returncode}")
+            print(f"错误输出:\n{e.stderr}")
+        except FileNotFoundError:
+            print("Java 执行文件未找到，请检查 Java 是否正确安装。")
+
+        print("\n开始清理下载缓存文件\n")
+        os.remove(file_name)
 
 
 def compare_versions(version1, version2):
@@ -413,7 +476,7 @@ def start_server():
     with open("eula.txt", "w", encoding="utf-8") as f:
         f.write("eula=true")
     print("\n修改完成\n我的世界服务器部署完毕")
-    print(f"\n启动命令为: {" ".join(command)}")
+    print(f"\n启动命令为: {command}")
 
 
 def is_admin():
@@ -427,7 +490,7 @@ if __name__ == "__main__":
     if os_type == "Windows" and not is_admin():
         print("请以管理员运行")
         exit()
-
+    readline.parse_and_bind('"\C-H": backward-delete-char')
     judgment_architecture()
     # 开发环境与实际应用
     if getattr(sys, "frozen", False):
