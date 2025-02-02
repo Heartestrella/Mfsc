@@ -279,38 +279,45 @@ def get_java():
             if java_version_int == "8":
                 java_path = r"C:\Program Files\Java\jre1.8.0_421\bin\java.exe"
         elif os_type == "Linux":
-
             base_dir = rf"/opt/java{java_version_int}"
-            subfolder_path = next(
-                (
-                    os.path.join(base_dir, d)
-                    for d in os.listdir(base_dir)
-                    if os.path.isdir(os.path.join(base_dir, d))
-                ),
-                None,
-            )
-            java_path = os.path.join(subfolder_path, "bin", "java")
-
-        if os.path.exists(java_path):
+            if os.path.exists(base_dir):
+                subfolder_path = next(
+                    (
+                        os.path.join(base_dir, d)
+                        for d in os.listdir(base_dir)
+                        if os.path.isdir(os.path.join(base_dir, d))
+                    ),
+                    None,
+                )
+                java_path = os.path.join(subfolder_path, "bin", "java")
+            else:
+                os.mkdir(base_dir)
+        if java_path and os.path.exists(java_path):
             return None
-
+        needs_java = f"Java {java_version_int}"
         print(f"\n所需的Java版本为：{java_version_int}\n")
         java_url_data = config["java_url"][os_type]
         if os_type == "Windows":
-            java_url = java_url_data["64bit"][java_version_int]
+            java_url = java_url_data["64bit"][needs_java]
             suffix = "exe"
         elif os_type == "Linux":
-            java_url = java_url_data[machine_type][java_version_int]
+            java_url = java_url_data[
+                (
+                    "AMD64"
+                    if machine_type == "x86_64"
+                    else "aarch64" if machine_type == "aarch64" else None
+                )
+            ][needs_java]
             suffix = "tar.gz"
         else:
             OSError("不支持的操作系统")
-        file_name = f"{java_version_int}.{suffix}"
+        file_name = f"{needs_java}.{suffix}"
         print(java_url)
 
         download_file(java_url, file_name)
         print("\n安装Java中...\n")
         if os_type == "Windows":
-            print(f"请手动完成Java{java_version_int}的安装,请不要更改Java的默认配置\n")
+            print(f"请手动完成Java{needs_java}的安装,请不要更改Java的默认配置\n")
             subprocess.run(file_name, check=True)
 
         elif os_type == "Linux":
@@ -489,6 +496,9 @@ def is_admin():
 if __name__ == "__main__":
     if os_type == "Windows" and not is_admin():
         print("请以管理员运行")
+        exit()
+    elif os_type == "Linux" and os.geteuid() != 0:
+        print("请以root用户运行")
         exit()
     readline.parse_and_bind('"\C-H": backward-delete-char')
     judgment_architecture()
